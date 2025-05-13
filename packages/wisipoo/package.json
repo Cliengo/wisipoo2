@@ -1,5 +1,5 @@
 {
-  "name": "wisipoo",
+  "name": "@cliengo/wisipoo",
   "version": "1.0.0",
   "description": "",
   "main": "dist/wisipoo.umd.js",
