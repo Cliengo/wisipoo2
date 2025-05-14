@@ -11,7 +11,7 @@
     // "disableReferencedProjectLoad": true,             /* Reduce the number of projects loaded automatically by TypeScript. */
 
     /* Language and Environment */
-    "target": "ESNext",
+    "target": "ES2020",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
     // "libReplacement": true,                           /* Enable lib replacement. */
@@ -52,12 +52,13 @@
     // "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from 'node_modules'. Only applicable with 'allowJs'. */
 
     /* Emit */
-    // "declaration": false,
-    // "emitDeclarationOnly": false,
-    // "declarationMap": false,
-    // "outDir": undefined,
-    // "declarationDir": undefined,
-    "noEmit": true,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "declarationDir": "./dist/types",
+    "noEmit": false,
 
     /* Interop Constraints */
     // "isolatedModules": true,                          /* Ensure that each file can be safely transpiled without relying on other imports. */
@@ -95,7 +96,6 @@
     "skipLibCheck": true
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist"],
-  // "sourceMap": false, // JSR handles this
+  "exclude": ["node_modules", "dist", "webpack.config.cjs"],
   "esModuleInterop": true
 }

@@ -1,9 +1,0 @@
-{
-  "name": "@cliengo/wisipoo",
-  "version": "0.1.1",
-  "license": "MIT",
-  "exports": {
-    ".": "./src/index.tsx",
-    "./mod": "./src/mod.tsx"
-  }
-}
