@@ -3,40 +3,18 @@
   "version": "1.0.0",
   "description": "A React component library",
   "type": "module",
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/types/index.d.ts",
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/index.umd.js"
-      }
-    },
-    "./mod": {
-      "import": {
-        "types": "./dist/types/mod.d.ts",
-        "default": "./dist/mod.mjs"
-      },
-      "require": {
-        "types": "./dist/types/mod.d.ts",
-        "default": "./dist/mod.umd.js"
-      }
-    }
+    ".": "./src/index.tsx",
+    "./mod": "./src/mod.tsx"
   },
   "files": [
-    "dist",
-    "src"
+    "src",
+    "jsr.json",
+    "README.md"
   ],
   "scripts": {
-    "clean": "rimraf dist",
-    "build:js": "webpack --mode production",
-    "build:types": "tsc --emitDeclarationOnly --project tsconfig.json",
-    "build": "pnpm run clean && pnpm run build:js && pnpm run build:types"
+    "lint": "eslint .",
+    "check-types": "tsc --noEmit --project tsconfig.json"
   },
   "keywords": ["react", "component", "library"],
   "author": "",
@@ -51,13 +29,8 @@
   "devDependencies": {
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "css-loader": "^7.1.2",
-    "rimraf": "^6.0.1",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.2",
     "typescript": "~5.8.3",
-    "webpack": "^5.99.8",
-    "webpack-cli": "^6.0.1"
+    "eslint": "^8.0.0"
   },
   "packageManager": "pnpm@10.7.1"
 }
