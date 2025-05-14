@@ -18,6 +18,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js # JSR CLI and pnpm run on Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Or your preferred LTS version
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8 # Or your pnpm version from packageManager field
+
+      - name: Install dependencies in wisipoo package
+        working-directory: ./packages/wisipoo
+        run: pnpm install --frozen-lockfile # Ensures it uses the lockfile
+
       - name: Publish @cliengo/wisipoo to JSR
         working-directory: ./packages/wisipoo
         run: npx jsr publish 
