@@ -1,37 +1,56 @@
 {
   "name": "@cliengo/wisipoo",
   "version": "1.0.0",
-  "description": "",
-  "main": "dist/wisipoo.umd.js",
-  "types": "dist/types/mod.d.ts",
+  "description": "A React component library",
+  "type": "module",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/types/index.d.ts",
   "exports": {
-    ".": "./src/mod.tsx",
-    "./mod": "./src/mod.tsx",
-    "./css": "./src/wisipoo.css"
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.umd.js"
+      }
+    },
+    "./mod": {
+      "import": {
+        "types": "./dist/types/mod.d.ts",
+        "default": "./dist/mod.mjs"
+      },
+      "require": {
+        "types": "./dist/types/mod.d.ts",
+        "default": "./dist/mod.umd.js"
+      }
+    }
   },
   "files": [
     "dist",
-    "src/wisipoo.css"
+    "src"
   ],
   "scripts": {
     "clean": "rimraf dist",
     "build:js": "webpack --mode production",
-    "build:types": "tsc --emitDeclarationOnly",
-    "build:css": "cp src/wisipoo.css dist/wisipoo.css",
-    "build": "pnpm run clean && pnpm run build:js && pnpm run build:types && pnpm run build:css"
+    "build:types": "tsc --emitDeclarationOnly --project tsconfig.json",
+    "build": "pnpm run clean && pnpm run build:js && pnpm run build:types"
   },
-  "keywords": [],
+  "keywords": ["react", "component", "library"],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.7.1",
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
   "dependencies": {
     "clsx": "^2.1.1"
   },
   "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@types/react": "^18.2.2",
-    "@types/react-dom": "^18.2.1",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
     "css-loader": "^7.1.2",
     "rimraf": "^6.0.1",
     "style-loader": "^4.0.0",
@@ -40,8 +59,5 @@
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1"
   },
-  "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
-  }
+  "packageManager": "pnpm@10.7.1"
 }

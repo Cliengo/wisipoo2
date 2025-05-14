@@ -1,11 +1,11 @@
 import React from 'react';
 import clsx from 'clsx';
 
-export interface ThingProps {
+export interface EditorProps {
   content: string;
   fancy?: boolean;
 }
 
-export const Thing: React.FC<ThingProps> = ({ content, fancy }) => {
-  return <div className={clsx('thing', { fancy })}>{content}</div>;
+export const Editor: React.FC<EditorProps> = ({ content, fancy }) => {
+  return <div className={clsx('wisipoo-editor', { fancy })}>{content}</div>;
 }; 
