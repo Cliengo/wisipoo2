@@ -6,3 +6,18 @@ on:
     paths:
       - 'packages/wisipoo/**'
       - '.github/workflows/publish-wisipoo.yml'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Publish @cliengo/wisipoo to JSR
+        working-directory: ./packages/wisipoo
+        run: npx jsr publish 
